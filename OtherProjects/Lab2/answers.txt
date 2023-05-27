@@ -1,3 +1,0 @@
-??? If you create a constructor method to build a DVD by title then create a constructor method to build a DVD by category. Does JAVA allow you to do this?
-
-Java only allows us to create multiple constructor methods with the same name but with difference in type of parameters (or overloading). When we want to create one constructor method to build a DVD only by 'title' and one only by 'category', since these 2 variables have the same type (String) => Cannot do this.

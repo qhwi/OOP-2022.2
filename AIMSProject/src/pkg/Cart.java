@@ -12,7 +12,7 @@ public class Cart {
 		} else {
 			itemsOrdered[qtyOrdered] = disc;
 			qtyOrdered++;
-			System.out.println("Disc added!");
+			System.out.println("Disc added to Cart!");
 		}
 	}
 	
@@ -49,7 +49,7 @@ public class Cart {
 	            }
 	            itemsOrdered[qtyOrdered - 1] = null;
 	            qtyOrdered--;
-	            System.out.println("Disc removed!");
+	            System.out.println("Disc removed from Cart!");
 	            return;
 	        }
 	    }

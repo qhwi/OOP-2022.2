@@ -7,8 +7,10 @@ public class DigitalVideoDisc {
 	private String director;
     private int length;
     private float cost;
-    
-    
+ 
+	public int getId() {
+		return id;
+	}
     public String getTitle() {
 		return title;
 	}
@@ -65,6 +67,23 @@ public class DigitalVideoDisc {
     
 	public void setTitle(String title) {
 		this.title = title;
+	}
+
+	public String toString() {
+		String dvdstr = String.format("%d. DVD - %s - %s - %s - %d: %f $", getId(), getTitle(), getCategory(), getDirector(), getLength(), getCost());
+		return dvdstr;
+	}
+
+	public boolean isMatch(int id) {
+		if (this.getId() == id)
+			return true;
+		return false;		
+	}
+	
+	public boolean isMatch(String title) {
+		if (this.getTitle().equals(title))
+			return true;
+		return false;
 	}
 
 }

@@ -65,4 +65,48 @@ public class Cart {
         }
         return total;
 	}
+
+	public void printCart() {
+		boolean printed = false;
+		System.out.println("********************CART*******************");
+		System.out.println("Ordered Items: ");
+		for (int i = 0; i < qtyOrdered; i++) {
+			System.out.println(itemsOrdered[i].toString());
+			printed = true;
+		}
+		if (!printed)
+			System.out.println("None");
+		System.out.printf("Total cost: %f\n", totalCost());
+		System.out.println("*******************************************");
+	}
+
+	public void searchCart(int id) {
+		boolean printed = false;
+		boolean found = false;
+		System.out.printf("Searching for ID '%d':\n", id);
+		for (int i = 0; i < qtyOrdered; i++) {
+			found = itemsOrdered[i].isMatch(id);
+			if (found) {
+				System.out.println(itemsOrdered[i].toString());
+				printed = true;
+			}
+		}
+		if (!printed)
+			System.out.println("ID not found!");
+	}
+	
+	public void searchCart(String title) {
+		boolean printed = false;
+		boolean found = false;
+		System.out.printf("Searching for Title '%s':\n", title);
+		for (int i = 0; i < qtyOrdered; i++) {
+			found = itemsOrdered[i].isMatch(title);
+			if (found) {
+				System.out.println(itemsOrdered[i].toString());
+				printed = true;
+			}
+		}
+		if (!printed)
+			System.out.println("Title not found!");
+	}
 }

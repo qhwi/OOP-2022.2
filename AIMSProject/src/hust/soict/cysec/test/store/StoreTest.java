@@ -1,4 +1,7 @@
-package pkg;
+package hust.soict.cysec.test.store;
+
+import hust.soict.cysec.aims.disc.DigitalVideoDisc;
+import hust.soict.cysec.aims.store.Store;
 
 public class StoreTest {
 

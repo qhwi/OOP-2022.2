@@ -1,4 +1,4 @@
-package pkg;
+package hust.soict.cysec.aims.disc;
 public class DigitalVideoDisc {
 	private static int nbDigitalVideoDiscs = 0;
 	private int id;

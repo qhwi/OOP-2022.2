@@ -1,4 +1,6 @@
-package pkg;
+package hust.soict.cysec.test.disc;
+
+import hust.soict.cysec.aims.disc.DigitalVideoDisc;
 
 public class TestPassingParameter {
 	static class DVDWrapper {

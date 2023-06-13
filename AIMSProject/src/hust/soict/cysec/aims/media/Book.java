@@ -50,4 +50,10 @@ public class Book extends Media {
 		System.out.printf("Author %s not found...\n", authorName);
 		return;
 	}
+	
+    @Override
+	public String toString() {
+		String bookstr = String.format("Book %d. %s - %s : %.2f $", getId(), getTitle(), getCategory(), getCost());
+		return bookstr;
+	}
 }

@@ -1,4 +1,4 @@
-package hust.soict.cysec.test.disc;
+package hust.soict.cysec.test.media;
 
 import hust.soict.cysec.aims.media.DigitalVideoDisc;
 

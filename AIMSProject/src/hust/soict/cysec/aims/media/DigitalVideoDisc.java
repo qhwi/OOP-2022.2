@@ -1,6 +1,6 @@
 package hust.soict.cysec.aims.media;
 
-public class DigitalVideoDisc extends Disc {
+public class DigitalVideoDisc extends Disc implements Playable {
 
 	public DigitalVideoDisc(String title) {
         super(title);
@@ -31,6 +31,11 @@ public class DigitalVideoDisc extends Disc {
 		if (this.getTitle().equals(title))
 			return true;
 		return false;
+	}
+	
+	@Override
+	public void play() {
+		System.out.printf("Playing DVD: %s - %d secs left\n",this.getTitle(), this.getLength());
 	}
 
 }

@@ -1,7 +1,10 @@
 package hust.soict.cysec.aims.cart;
 
-import hust.soict.cysec.aims.media.*;
-import java.util.*;
+import hust.soict.cysec.aims.media.Media;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
 
 public class Cart {
 	public static final int MAX_NUMBERS_ORDERED = 20;
@@ -79,4 +82,23 @@ public class Cart {
 		if (!printed)
 			System.out.println("Title not found!");
 	}
+	
+	public void sortCartByTitle() {
+        Collections.sort((List<Media>)itemsOrdered, Media.COMPARE_BY_TITLE_COST);
+        Iterator<Media> iterator = itemsOrdered.iterator();
+        iterator = itemsOrdered.iterator();
+    
+        while (iterator.hasNext()) {
+            System.out.println(((Media)iterator.next()).toString());
+        }
+    }
+    public void sortCartByCost() {
+        Collections.sort((List<Media>)itemsOrdered, Media.COMPARE_BY_COST_TITLE);
+        Iterator<Media> iterator = itemsOrdered.iterator();
+        iterator = itemsOrdered.iterator();
+    
+        while (iterator.hasNext()) {
+            System.out.println(((Media)iterator.next()).toString());
+        }
+    }
 }

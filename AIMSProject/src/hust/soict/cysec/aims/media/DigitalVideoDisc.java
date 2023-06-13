@@ -1,9 +1,7 @@
 package hust.soict.cysec.aims.media;
 
-public class DigitalVideoDisc extends Media {
-	private String director;
-    private int length;
-	
+public class DigitalVideoDisc extends Disc {
+
 	public DigitalVideoDisc(String title) {
         super(title);
     }    
@@ -11,21 +9,12 @@ public class DigitalVideoDisc extends Media {
         super(title, category, cost);
     }
     public DigitalVideoDisc(String title, String category, String director, float cost) {
-        super(title, category, cost);
-        this.director = director;
+        super(title, category, director, cost);
     }
     public DigitalVideoDisc(String title, String category, String director, int length, float cost) {
-        super(title, category, cost);
-        this.director = director;
-        this.length = length;
+        super(title, category, director, length, cost);
     }
     
-    public String getDirector() {
-		return director;
-	}
-	public int getLength() {
-		return length;
-	}
     
 	public String toString() {
 		String dvdstr = String.format("%d. DVD - %s - %s - %s - %d: %f $", getId(), getTitle(), getCategory(), getDirector(), getLength(), getCost());

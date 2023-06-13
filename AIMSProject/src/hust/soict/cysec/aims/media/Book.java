@@ -30,7 +30,7 @@ public class Book extends Media {
 	public void addAuthor(String authorName) {
 		for (String aut : authors) {
 			if (authorName.equalsIgnoreCase(aut)) {
-				System.out.printf("Author %s already exists...\n", aut);
+				System.out.printf("Author %s already added...\n", aut);
 				return;
 			}
 		}

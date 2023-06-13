@@ -49,4 +49,14 @@ public class Store {
 			System.out.println("None");
 		System.out.println("********************************************");
 	}
+	
+	public Media searchStore(String title) {
+		for (Media media : itemsInStore) {
+			if (media.isMatch(title)) {
+				System.out.println(media.toString());
+				return media;
+			}
+        }
+		return null;
+	}
 }

@@ -74,7 +74,7 @@ public class Cart {
 		boolean printed = false;
 		System.out.printf("Searching for Title '%s':\n", title);
 		for (Media media : itemsOrdered) {
-			if (media.isMatch(title)) {
+			if (media.getTitle().toLowerCase().contains(title.toLowerCase())) {
 				System.out.println(media.toString());
 				printed = true;
 			}
@@ -99,6 +99,20 @@ public class Cart {
     
         while (iterator.hasNext()) {
             System.out.println(((Media)iterator.next()).toString());
+        }
+    }
+    
+    public int getCount() {
+		return itemsOrdered.size();
+	}
+    
+    public boolean order() {
+        if (itemsOrdered.size() == 0) {
+            return false;
+        } else {
+        	//order here
+            itemsOrdered.clear();
+            return true;
         }
     }
 }

@@ -75,5 +75,8 @@ public abstract class Media {
 	public void setCost(float cost) {
 		this.cost = cost;
 	}
+	public void play() {
+		System.out.println("Playing media");
+	}
 
 }

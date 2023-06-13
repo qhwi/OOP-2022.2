@@ -1,16 +1,22 @@
-package hust.soict.cysec.aims;
+package hust.soict.cysec.aims.media;
 import java.util.*;
 
-public class Book {
+public class Book extends Media {
 
-	private int id;
-	private String title;
-	private String category;
-	private float cost;
 	private List<String> authors = new ArrayList<String>();
 	
-	public Book() {
-		// TODO Auto-generated constructor stub
+	public Book(String title) {
+        super(title);
+    }
+    public Book(String title, String category) {
+        super(title, category);
+    }
+    public Book(String title, String category, float cost) {
+        super(title, category, cost);
+    }
+	public Book(String title, String category, float cost, List<String> authors) {
+		super(title, category, cost);
+		this.authors = authors;
 	}
 
 	public List<String> getAuthors() {

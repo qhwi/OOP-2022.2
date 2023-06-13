@@ -1,6 +1,6 @@
 package hust.soict.cysec.aims.cart;
 
-import hust.soict.cysec.aims.disc.DigitalVideoDisc;
+import hust.soict.cysec.aims.media.DigitalVideoDisc;
 
 public class Cart {
 	public static final int MAX_NUMBERS_ORDERED = 20;

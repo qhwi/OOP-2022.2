@@ -24,6 +24,19 @@ public abstract class Media {
         this.cost = cost;
         this.id = ++nbMedia;
     }
+    
+    public boolean isMatch(int id) {
+		if (this.getId() == id)
+			return true;
+		return false;		
+	}
+	
+	public boolean isMatch(String title) {
+		if (this.getTitle().toLowerCase().equals(title.toLowerCase()))
+			return true;
+		return false;
+	}
+	
 
 	public int getId() {
 		return id;

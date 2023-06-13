@@ -9,6 +9,11 @@ public class Track implements Playable {
         this.length = length;
     }
     
+	public String toString() {
+		String dvdstr = String.format("Track: - %d secs", getTitle(), getLength());
+		return dvdstr;
+	}
+    
     public String getTitle() {
         return title;
     }

@@ -17,21 +17,10 @@ public class DigitalVideoDisc extends Disc implements Playable {
     
     
 	public String toString() {
-		String dvdstr = String.format("%d. DVD - %s - %s - %s - %d: %f $", getId(), getTitle(), getCategory(), getDirector(), getLength(), getCost());
+		String dvdstr = String.format("DVD %d. - %s - %s - %s - %d secs: %f $", getId(), getTitle(), getCategory(), getDirector(), getLength(), getCost());
 		return dvdstr;
 	}
 
-	public boolean isMatch(int id) {
-		if (this.getId() == id)
-			return true;
-		return false;		
-	}
-	
-	public boolean isMatch(String title) {
-		if (this.getTitle().equals(title))
-			return true;
-		return false;
-	}
 	
 	@Override
 	public void play() {

@@ -23,13 +23,16 @@ public class CompactDisc extends Disc implements Playable{
     }
 
     public void removeTrack(Track track) {
-        if (tracks.contains(track)) {
-            tracks.remove(track);
+        if (tracks.remove(track)) {
             System.out.printf("Removed track: %s\n", track.getTitle());
         } else {
             System.out.printf("Track %s not found...\n", track.getTitle());
         }
     }
+    
+    public String toString() {
+		return String.format("CD %d. %s - %s - %s - %d secs: %f $", getId(), getTitle(), getCategory(), getArtist(), getLength(), getCost());
+	}
     
     public int getLength() {
         int total = 0;

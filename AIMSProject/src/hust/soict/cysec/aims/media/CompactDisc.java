@@ -1,5 +1,6 @@
 package hust.soict.cysec.aims.media;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class CompactDisc extends Disc implements Playable{
 	private String artist;

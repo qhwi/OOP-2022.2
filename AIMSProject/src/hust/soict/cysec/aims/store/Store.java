@@ -36,4 +36,17 @@ public class Store {
            	}
         }
 	}
+    
+	public void printStore() {
+		boolean printed = false;
+		System.out.println("********************STORE*******************");
+		System.out.println("Ordered Items: ");
+		for (Media media : itemsInStore) {
+            System.out.println(media.toString());
+            printed = true;
+        }
+		if (!printed)
+			System.out.println("None");
+		System.out.println("********************************************");
+	}
 }

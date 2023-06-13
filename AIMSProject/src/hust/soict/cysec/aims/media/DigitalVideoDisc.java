@@ -15,7 +15,7 @@ public class DigitalVideoDisc extends Disc implements Playable {
         super(title, category, director, length, cost);
     }
     
-    
+    @Override
 	public String toString() {
 		String dvdstr = String.format("DVD %d. - %s - %s - %s - %d secs: %f $", getId(), getTitle(), getCategory(), getDirector(), getLength(), getCost());
 		return dvdstr;

@@ -9,6 +9,7 @@ public class Track implements Playable {
         this.length = length;
     }
     
+    @Override
 	public String toString() {
 		String dvdstr = String.format("Track: - %d secs", getTitle(), getLength());
 		return dvdstr;
@@ -19,6 +20,14 @@ public class Track implements Playable {
     }
     public int getLength() {
         return length;
+    }
+    
+    @Override
+    public boolean equals(Object o) {
+        if (!(o instanceof Track)) {
+            return false;
+        }
+        return ((Track)o).getTitle() == this.getTitle() && ((Track)o).getLength() == this.getLength();
     }
 
 	@Override

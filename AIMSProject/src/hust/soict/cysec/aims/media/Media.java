@@ -42,6 +42,17 @@ public abstract class Media {
 		return false;
 	}
 	
+	@Override
+    public boolean equals(Object o) {
+        if (!(o instanceof Media)) {
+            return false;
+        }
+        return ((Media)o).getTitle() == this.getTitle();
+    }
+	
+	public String toString() {
+		return String.format("Playing Media: " + getTitle());
+	}
 
 	public int getId() {
 		return id;

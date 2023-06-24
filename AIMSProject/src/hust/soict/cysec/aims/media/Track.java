@@ -31,9 +31,8 @@ public class Track implements Playable {
     }
 
 	@Override
-	public void play() {
-		// TODO Auto-generated method stub
-		System.out.printf("Playing Track: %s - %d secs left\n",this.getTitle(), this.getLength());
+	public String play() {
+		return String.format("Playing Track: %s - %d secs left\n",this.getTitle(), this.getLength());
 	}
 
 }

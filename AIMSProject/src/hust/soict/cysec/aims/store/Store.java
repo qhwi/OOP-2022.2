@@ -13,6 +13,10 @@ public class Store {
 		return itemsInStore.size();
 	}
 	
+	public ArrayList<Media> getItemsInStore() {
+		return itemsInStore;
+	}
+	
     public void addMedia(Media media) {
 		if (itemsInStore.size() >= MAX_NUMBERS_INSTORE) {
 			System.out.println("Store is full...");

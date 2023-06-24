@@ -10,15 +10,17 @@ public class Cart {
 	public static final int MAX_NUMBERS_ORDERED = 20;
     private ArrayList<Media> itemsOrdered = new ArrayList<Media>();
     
-    public void addMedia(Media media) {
+    public String addMedia(Media media) {
+    	String m = null;
 		if (itemsOrdered.size() >= MAX_NUMBERS_ORDERED) {
-			System.out.println("Cart is full...");
+			m = "Cart is full...";
 		} else if (itemsOrdered.contains(media)) {
-            System.out.println(media.getTitle() + "  already added to cart...");
+            m = (media.getTitle() + "  already added to cart...");
         } else {
             itemsOrdered.add(media);
-            System.out.println("Added to Cart: " + media.getTitle());
+            m = ("Added to Cart: " + media.getTitle());
         }
+		return m;
 	}
 	
     public void removeMedia(Media media) {

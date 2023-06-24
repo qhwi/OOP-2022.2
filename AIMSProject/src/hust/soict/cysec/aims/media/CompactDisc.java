@@ -48,13 +48,15 @@ public class CompactDisc extends Disc implements Playable{
 		return artist;
 	}
 	@Override
-	public void play() {
-		System.out.println("Playing CD: " + this.getTitle());
-		System.out.println("Total tracks: " + this.tracks.size());
-        System.out.println("Total length: " + this.getLength() + "secs");
+	public String play() {
+		String m = "";
+		m += ("Playing CD: " + this.getTitle());
+		m += ("\nTotal tracks: " + this.tracks.size());
+        m+= ("\nTotal length: " + this.getLength() + "secs");
         for (Track track : tracks) {
-            track.play();
+            m += "\n" + track.play();
         }
+        return m;
 	}
     
 

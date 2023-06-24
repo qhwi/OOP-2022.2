@@ -23,8 +23,8 @@ public class DigitalVideoDisc extends Disc implements Playable {
 
 	
 	@Override
-	public void play() {
-		System.out.printf("Playing DVD: %s - %d secs left\n",this.getTitle(), this.getLength());
+	public String play() {
+		return String.format("Playing DVD: %s - %d secs left\n", this.getTitle(), this.getLength());
 	}
 
 }

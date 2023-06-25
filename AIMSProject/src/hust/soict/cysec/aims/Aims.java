@@ -432,7 +432,7 @@ public class Aims {
                             	}
 
                                 Track newTrack = new Track(trackTitle, trackLength);
-                                newCD.addTrack(newTrack);
+                                System.out.println(newCD.addTrack(newTrack));
                             }
                         } else
                         	System.out.println("No track added.");

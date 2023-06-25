@@ -16,21 +16,25 @@ public class CompactDisc extends Disc implements Playable{
         this.artist = artist;
     }
     
-    public void addTrack(Track track) {
+    public String addTrack(Track track) {
+    	String m = null;
         if (!tracks.contains(track)) {
             tracks.add(track);
-            System.out.printf("Added track: %s\n", track.getTitle());
+            m = String.format("Added track: %s\n", track.getTitle());
         } else {
-            System.out.printf("Track %s already added...\n", track.getTitle());
+            m = String.format("Track %s already added...\n", track.getTitle());
         }
+		return m;
     }
 
-    public void removeTrack(Track track) {
+    public String removeTrack(Track track) {
+    	String m = null;
         if (tracks.remove(track)) {
-            System.out.printf("Removed track: %s\n", track.getTitle());
+        	m = String.format("Removed track: %s\n", track.getTitle());
         } else {
-            System.out.printf("Track %s not found...\n", track.getTitle());
+        	m = String.format("Track %s not found...\n", track.getTitle());
         }
+		return m;
     }
     
     @Override

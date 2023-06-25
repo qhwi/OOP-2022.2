@@ -1,13 +1,9 @@
 package hust.soict.cysec.aims.screen;
 
-import hust.soict.cysec.aims.store.Store;
 import hust.soict.cysec.aims.cart.Cart;
-import hust.soict.cysec.aims.media.Media;
+import hust.soict.cysec.aims.screen.controller.CartScreenController;
 
 import javax.swing.*;
-import java.awt.*;
-import java.awt.event.*;
-import java.util.ArrayList;
 import javafx.scene.Scene;
 import javafx.scene.Parent;
 import javafx.application.Platform;
@@ -16,7 +12,11 @@ import javafx.fxml.FXMLLoader;
 
 
 public class CartScreen extends JFrame {
-    private static Cart cart;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private static Cart cart;
 
     public CartScreen(Cart cart) {
         super();
@@ -31,8 +31,9 @@ public class CartScreen extends JFrame {
             @Override
             public void run() {
                 try {
+                	System.out.println("GETTING");
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("/hust/soict/cysec/aims/screen/fxml/cart.fxml"));
-                    
+                    System.out.println("DONE");
                     CartScreenController controller = new CartScreenController(cart);
                     loader.setController(controller);
                     Parent root = loader.load();

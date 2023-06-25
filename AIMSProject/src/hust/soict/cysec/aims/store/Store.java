@@ -9,7 +9,7 @@ public class Store {
 	
 	private ArrayList<Media> itemsInStore = new ArrayList<Media>();
 	
-	public int getNumberInStore() {
+	public int getItemsCount() {
 		return itemsInStore.size();
 	}
 	
@@ -17,28 +17,31 @@ public class Store {
 		return itemsInStore;
 	}
 	
-    public void addMedia(Media media) {
+    public String addMedia(Media media) {
+    	String m = null;
 		if (itemsInStore.size() >= MAX_NUMBERS_INSTORE) {
-			System.out.println("Store is full...");
+			m = ("Store is full...");
 		} else if (itemsInStore.contains(media)) {
-            System.out.println(media.getTitle() + "  already added to store...");
+            m = (media.getTitle() + "  already added to store...");
         } else {
         	itemsInStore.add(media);
-            System.out.println("Added to Store: " + media.getTitle());
+            m = ("Added to Store: " + media.getTitle());
         }
+		return m;
 	}
 	
-    public void removeMedia(Media media) {
+    public String removeMedia(Media media) {
+    	String m = null;
 		if (itemsInStore.size() == 0) {
-			System.out.println("Store is empty...");
-			return;
+			m = ("Store is empty...");
 		} else {
             if (itemsInStore.remove(media)) {
-           		System.out.println("Removed from Store: " + media.getTitle());
+           		m = ("Removed from Store: " + media.getTitle());
             } else {
-           		System.out.println(media.getTitle() + "  not found in store...");
+           		m = (media.getTitle() + "  not found in store...");
            	}
         }
+		return m;
 	}
     
 	public void printStore() {

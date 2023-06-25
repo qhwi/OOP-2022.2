@@ -15,12 +15,12 @@ public class StoreTest {
 		store.addMedia(dvd1);
 		store.addMedia(dvd2);
 		store.addMedia(dvd3);
-		System.out.printf("Number in Store: %d\n", store.getNumberInStore());
+		System.out.printf("Number in Store: %d\n", store.getItemsCount());
 		
 		store.removeMedia(dvd1);
-		System.out.printf("Number in Store: %d\n", store.getNumberInStore());
+		System.out.printf("Number in Store: %d\n", store.getItemsCount());
 
 		store.removeMedia(dvd2);
-		System.out.printf("Number in Store: %d\n", store.getNumberInStore());
+		System.out.printf("Number in Store: %d\n", store.getItemsCount());
 	}
 }

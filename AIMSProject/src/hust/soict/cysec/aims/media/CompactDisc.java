@@ -2,6 +2,8 @@ package hust.soict.cysec.aims.media;
 import java.util.ArrayList;
 import java.util.List;
 
+import hust.soict.cysec.aims.exception.PlayerException;
+
 public class CompactDisc extends Disc implements Playable{
 	private String artist;
     private List<Track> tracks = new ArrayList<Track>();; 
@@ -48,7 +50,7 @@ public class CompactDisc extends Disc implements Playable{
 		return artist;
 	}
 	@Override
-	public String play() {
+	public String play() throws PlayerException {
 		String m = "";
 		m += ("Playing CD: " + this.getTitle());
 		m += ("\nTotal tracks: " + this.tracks.size());

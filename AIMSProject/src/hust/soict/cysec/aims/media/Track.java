@@ -1,5 +1,7 @@
 package hust.soict.cysec.aims.media;
 
+import hust.soict.cysec.aims.exception.PlayerException;
+
 public class Track implements Playable {
 	private String title;
     private int length;
@@ -31,7 +33,8 @@ public class Track implements Playable {
     }
 
 	@Override
-	public String play() {
+	public String play() throws PlayerException {
+		if (this.getLength() <= 0) throw new PlayerException("Invalid media length!");
 		return String.format("Playing Track: %s - %d secs left\n",this.getTitle(), this.getLength());
 	}
 

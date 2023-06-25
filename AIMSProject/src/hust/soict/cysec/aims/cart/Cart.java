@@ -1,19 +1,22 @@
 package hust.soict.cysec.aims.cart;
 
 import hust.soict.cysec.aims.media.Media;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
+import javax.naming.LimitExceededException;
+
 public class Cart {
 	public static final int MAX_NUMBERS_ORDERED = 20;
     private ArrayList<Media> itemsOrdered = new ArrayList<Media>();
     
-    public String addMedia(Media media) {
+    public String addMedia(Media media) throws LimitExceededException {
     	String m = null;
 		if (itemsOrdered.size() >= MAX_NUMBERS_ORDERED) {
-			m = "Cart is full...";
+			throw new LimitExceededException("ERROR: Cart is full...");
 		} else if (itemsOrdered.contains(media)) {
             m = (media.getTitle() + "  already added to cart...");
         } else {
@@ -23,16 +26,18 @@ public class Cart {
 		return m;
 	}
 	
-    public void removeMedia(Media media) {
+    public String removeMedia(Media media) {
+    	String m = null;
 		if (itemsOrdered.size() == 0) {
-			System.out.println("Cart is empty...");
-			return;
+			m = ("Cart is empty...");
+			return m;
 		} else {
             if (itemsOrdered.remove(media)) {
-           		System.out.println("Removed from Cart: " + media.getTitle());
+           		m = ("Removed from Cart: " + media.getTitle());
             } else {
-           		System.out.println(media.getTitle() + "  not found in cart...");
+           		m = (media.getTitle() + "  not found in cart...");
            	}
+            return m;
         }
 	}
 	
@@ -104,17 +109,21 @@ public class Cart {
         }
     }
     
-    public int getCount() {
+    public int getItemsCount() {
 		return itemsOrdered.size();
 	}
     
-    public boolean order() {
+    public String order() {
         if (itemsOrdered.size() == 0) {
-            return false;
+            return ("Cart is empty...");
         } else {
         	//order here
             itemsOrdered.clear();
-            return true;
+            return "Order created successfully.\\nYour Cart will be cleared.";
         }
     }
+
+	public ArrayList<Media> getItemsOrdered() {
+		return itemsOrdered;
+	}
 }

@@ -1,9 +1,12 @@
 package hust.soict.cysec.aims;
 
 import hust.soict.cysec.aims.cart.Cart;
+import hust.soict.cysec.aims.exception.PlayerException;
 import hust.soict.cysec.aims.media.*;
 import hust.soict.cysec.aims.store.Store;
 import java.util.Scanner;
+
+import javax.naming.LimitExceededException;
 
 public class Aims {
     private static Store store = new Store();
@@ -108,8 +111,13 @@ public class Aims {
                             break;
                         Media media = store.searchStore(title);
                         if (media != null) {
-                            cart.addMedia(media);
-                            System.out.println("Current number of items in Cart: " + cart.getCount());
+                        	try {
+								System.out.println(cart.addMedia(media));
+							} catch (LimitExceededException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}
+                            System.out.println("Current number of items in Cart: " + cart.getItemsCount());
                             found = true;
                         } else {
                             System.out.println("Title not found...");
@@ -127,7 +135,12 @@ public class Aims {
                         Media media = store.searchStore(title);
                         if (media != null) {
                             if (media instanceof Disc) {
-                                media.play();
+                                try {
+									media.play();
+								} catch (PlayerException e) {
+									// TODO Auto-generated catch block
+									e.printStackTrace();
+								}
                             } else {
                                 System.out.println("Media not supported for playing...");
                             }
@@ -165,11 +178,21 @@ public class Aims {
                     back = true;
                     break;
                 case 1:
-                    cart.addMedia(media);
+				try {
+					System.out.println(cart.addMedia(media));
+				} catch (LimitExceededException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
                     break;
                 case 2:
                     if (media instanceof Disc) {
-                        media.play();
+                        try {
+							media.play();
+						} catch (PlayerException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
                         break;
                     }
                 default:
@@ -263,7 +286,7 @@ public class Aims {
                             break;
                         Media media = store.searchStore(title);
                         if (media != null) {
-                            cart.removeMedia(media);
+                        	System.out.println(cart.removeMedia(media));
                             break;
                         } else {
                             System.out.println("Title not found...");
@@ -280,7 +303,12 @@ public class Aims {
                         Media media = store.searchStore(title);
                         if (media != null) {
                             if (media instanceof Disc) {
-                                media.play();
+                                try {
+									media.play();
+								} catch (PlayerException e) {
+									// TODO Auto-generated catch block
+									e.printStackTrace();
+								}
                             } else {
                                 System.out.println("Media type not supported for playing!");
                             }
@@ -291,10 +319,7 @@ public class Aims {
                     }
                     break; 
                 case 5:
-                    if (cart.order())
-                    	System.out.println("Order created successfully.\nYour Cart will be cleared.");
-                    else
-                    	System.out.println("Cart is empty...");
+                	cart.order();
                     break;
                 default:
                     System.out.println("Invalid option, please choose again.");
@@ -362,11 +387,11 @@ public class Aims {
                     if (mediaOption == 1) {
                     	if (mediaCost == null || mediaCate == null) {
                     		Book newBook = new Book(mediaTitle);
-                    		store.addMedia(newBook);
+                    		System.out.println(store.addMedia(newBook));
                     	}
                     	else {
                     		Book newBook = new Book(mediaTitle, mediaCate, mediaCost);
-                        	store.addMedia(newBook);
+                    		System.out.println(store.addMedia(newBook));
                     	}
                         
                     } else if (mediaOption == 2) {
@@ -411,11 +436,11 @@ public class Aims {
                             }
                         } else
                         	System.out.println("No track added.");
-                        store.addMedia(newCD);
+                        System.out.println(store.addMedia(newCD));
                         
                     } else if (mediaOption == 3) {
                         DigitalVideoDisc newDVD = new DigitalVideoDisc(mediaTitle, mediaCate, mediaCost);
-                        store.addMedia(newDVD);
+                        System.out.println(store.addMedia(newDVD));
                         
                     } else if (mediaOption == 0) {
                         break;
@@ -433,7 +458,7 @@ public class Aims {
                             break;
                         Media media = store.searchStore(title);
                         if (media != null) {
-                            store.removeMedia(media);
+                        	System.out.println(store.removeMedia(media));
                             found = true;
                         } else {
                             System.out.println("Title not found...");

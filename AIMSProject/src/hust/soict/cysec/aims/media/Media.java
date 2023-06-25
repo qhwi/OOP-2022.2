@@ -2,6 +2,8 @@ package hust.soict.cysec.aims.media;
 
 import java.util.Comparator;
 
+import hust.soict.cysec.aims.exception.PlayerException;
+
 public abstract class Media {
 	
 	public static final Comparator<Media> COMPARE_BY_TITLE_COST = new MediaComparatorByTitleCost();
@@ -75,7 +77,7 @@ public abstract class Media {
 	public void setCost(float cost) {
 		this.cost = cost;
 	}
-	public String play() {
+	public String play() throws PlayerException {
 		return ("Playing media");
 	}
 

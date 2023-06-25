@@ -1,14 +1,20 @@
 package hust.soict.cysec.aims.screen;
 
 import hust.soict.cysec.aims.cart.Cart;
+import hust.soict.cysec.aims.exception.PlayerException;
 import hust.soict.cysec.aims.media.Media;
 import hust.soict.cysec.aims.media.Playable;
 
+import javax.naming.LimitExceededException;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
 public class MediaStore extends JPanel {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Media media;
 
 	public MediaStore(Media media, Cart cart) {
@@ -30,7 +36,13 @@ public class MediaStore extends JPanel {
         toCart.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-            	JOptionPane.showMessageDialog(null, cart.addMedia(media));
+            	try {
+					JOptionPane.showMessageDialog(null, cart.addMedia(media));
+				} catch (HeadlessException e1) {
+					e1.printStackTrace();
+				} catch (LimitExceededException e1) {
+					e1.printStackTrace();
+				}
             }
         });
         container.add(toCart);
@@ -46,7 +58,11 @@ public class MediaStore extends JPanel {
 	                dialog.setSize(400, 300);
 	
 	                String mediaInfo = "";
-                    mediaInfo = "<html>"+ media.play().replace("\n", "<br/>") + "</html>";
+                    try {
+						mediaInfo = "<html>"+ media.play().replace("\n", "<br/>") + "</html>";
+					} catch (PlayerException e1) {
+						e1.printStackTrace();
+					}
                     JLabel mediaLabel = new JLabel(mediaInfo);
                     mediaLabel.setVerticalAlignment(JLabel.CENTER); 
                     mediaLabel.setHorizontalAlignment(JLabel.CENTER);

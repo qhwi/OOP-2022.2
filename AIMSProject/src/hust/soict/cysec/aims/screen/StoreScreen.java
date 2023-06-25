@@ -10,6 +10,10 @@ import java.awt.event.*;
 import java.util.ArrayList;
 
 public class StoreScreen extends JFrame {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private static Store store = new Store();
     private static Cart cart = new Cart();
     
@@ -71,8 +75,8 @@ public class StoreScreen extends JFrame {
 
         menu.add(smUpdateStore);
 
-        JMenuItem viewStore = new JMenuItem("View store");
-        JMenuItem viewCart = new JMenuItem("View cart");
+        JMenuItem viewStore = new JMenuItem("View Store");
+        JMenuItem viewCart = new JMenuItem("View Cart");
         menu.add(viewStore);
         menu.add(viewCart);
         
@@ -105,7 +109,7 @@ public class StoreScreen extends JFrame {
         title.setFont(new Font(title.getFont().getName(), Font.PLAIN, 50));
         title.setForeground(Color.CYAN);
     
-        JButton viewCart = new JButton("View cart");
+        JButton viewCart = new JButton("View Cart");
         viewCart.setPreferredSize(new Dimension(100, 50));
         viewCart.setMaximumSize(new Dimension(100, 50));
         
@@ -130,7 +134,7 @@ public class StoreScreen extends JFrame {
         center.setLayout(new GridLayout(3, 3, 2, 2));
 
         ArrayList<Media> mediaInStore = store.getItemsInStore();
-        for (int i = 0; i < 9; i++) {
+        for (int i = 0; i < Math.min(store.getItemsCount(), 9); i++) {
             MediaStore cell = new MediaStore(mediaInStore.get(i), cart);
             center.add(cell);
         }
